@@ -102,7 +102,13 @@ func walkGraph(result *[]*object.Commit, seen *map[plumbing.Hash]struct{}, curre
 		// in any case, walk the parent
 		return walkGraph(result, seen, parents[0], path)
 	default: // more than one parent contains the path
-		// TODO: detect merges that had a conflict, because they must be
+		different, err := differentContents(path, current, parents)
+		if err != nil {
+			return err
+		}
+		if len(different) == 1 {
+			*result = append(*result, current)
+		}
 		// included in the result here.
 		for _, p := range parents {
 			err := walkGraph(result, seen, p, path)
