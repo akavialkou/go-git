@@ -1,4 +1,4 @@
-module github.com/akavialkou/go-git/v4
+module github.com/akavialkou/go-git.v4
 
 go 1.15
 
