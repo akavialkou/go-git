@@ -8,17 +8,17 @@ import (
 	"path"
 	"path/filepath"
 
+	"github.com/akavialkou/go-git.v4/plumbing"
+	"github.com/akavialkou/go-git.v4/plumbing/filemode"
+	"github.com/akavialkou/go-git.v4/plumbing/format/gitignore"
+	"github.com/akavialkou/go-git.v4/plumbing/format/index"
+	"github.com/akavialkou/go-git.v4/plumbing/object"
+	"github.com/akavialkou/go-git.v4/utils/ioutil"
+	"github.com/akavialkou/go-git.v4/utils/merkletrie"
+	"github.com/akavialkou/go-git.v4/utils/merkletrie/filesystem"
+	mindex "github.com/akavialkou/go-git.v4/utils/merkletrie/index"
+	"github.com/akavialkou/go-git.v4/utils/merkletrie/noder"
 	"gopkg.in/src-d/go-billy.v4/util"
-	"gopkg.in/src-d/go-git.v4/plumbing"
-	"gopkg.in/src-d/go-git.v4/plumbing/filemode"
-	"gopkg.in/src-d/go-git.v4/plumbing/format/gitignore"
-	"gopkg.in/src-d/go-git.v4/plumbing/format/index"
-	"gopkg.in/src-d/go-git.v4/plumbing/object"
-	"gopkg.in/src-d/go-git.v4/utils/ioutil"
-	"gopkg.in/src-d/go-git.v4/utils/merkletrie"
-	"gopkg.in/src-d/go-git.v4/utils/merkletrie/filesystem"
-	mindex "gopkg.in/src-d/go-git.v4/utils/merkletrie/index"
-	"gopkg.in/src-d/go-git.v4/utils/merkletrie/noder"
 )
 
 var (

@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"testing"
 
-	"gopkg.in/src-d/go-git.v4/plumbing"
-	"gopkg.in/src-d/go-git.v4/storage/memory"
+	"github.com/akavialkou/go-git.v4/plumbing"
+	"github.com/akavialkou/go-git.v4/storage/memory"
 
 	. "gopkg.in/check.v1"
 )

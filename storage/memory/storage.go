@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"time"
 
-	"gopkg.in/src-d/go-git.v4/config"
-	"gopkg.in/src-d/go-git.v4/plumbing"
-	"gopkg.in/src-d/go-git.v4/plumbing/format/index"
-	"gopkg.in/src-d/go-git.v4/plumbing/storer"
-	"gopkg.in/src-d/go-git.v4/storage"
+	"github.com/akavialkou/go-git.v4/config"
+	"github.com/akavialkou/go-git.v4/plumbing"
+	"github.com/akavialkou/go-git.v4/plumbing/format/index"
+	"github.com/akavialkou/go-git.v4/plumbing/storer"
+	"github.com/akavialkou/go-git.v4/storage"
 )
 
 var ErrUnsupportedObjectType = fmt.Errorf("unsupported object type")

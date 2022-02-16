@@ -4,8 +4,8 @@ import (
 	"errors"
 	"io"
 
+	"github.com/akavialkou/go-git.v4/plumbing"
 	. "gopkg.in/check.v1"
-	"gopkg.in/src-d/go-git.v4/plumbing"
 )
 
 type ReferenceSuite struct{}

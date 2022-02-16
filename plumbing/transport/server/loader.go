@@ -1,10 +1,10 @@
 package server
 
 import (
-	"gopkg.in/src-d/go-git.v4/plumbing/cache"
-	"gopkg.in/src-d/go-git.v4/plumbing/storer"
-	"gopkg.in/src-d/go-git.v4/plumbing/transport"
-	"gopkg.in/src-d/go-git.v4/storage/filesystem"
+	"github.com/akavialkou/go-git.v4/plumbing/cache"
+	"github.com/akavialkou/go-git.v4/plumbing/storer"
+	"github.com/akavialkou/go-git.v4/plumbing/transport"
+	"github.com/akavialkou/go-git.v4/storage/filesystem"
 
 	"gopkg.in/src-d/go-billy.v4"
 	"gopkg.in/src-d/go-billy.v4/osfs"

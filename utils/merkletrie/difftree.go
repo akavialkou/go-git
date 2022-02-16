@@ -252,7 +252,7 @@ import (
 	"errors"
 	"fmt"
 
-	"gopkg.in/src-d/go-git.v4/utils/merkletrie/noder"
+	"github.com/akavialkou/go-git.v4/utils/merkletrie/noder"
 )
 
 var (

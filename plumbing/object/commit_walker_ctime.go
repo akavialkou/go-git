@@ -5,8 +5,8 @@ import (
 
 	"github.com/emirpasic/gods/trees/binaryheap"
 
-	"gopkg.in/src-d/go-git.v4/plumbing"
-	"gopkg.in/src-d/go-git.v4/plumbing/storer"
+	"github.com/akavialkou/go-git.v4/plumbing"
+	"github.com/akavialkou/go-git.v4/plumbing/storer"
 )
 
 type commitIteratorByCTime struct {

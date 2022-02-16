@@ -5,8 +5,8 @@ import (
 	"os"
 	"runtime"
 
+	"github.com/akavialkou/go-git.v4/utils/ioutil"
 	"gopkg.in/src-d/go-billy.v4"
-	"gopkg.in/src-d/go-git.v4/utils/ioutil"
 )
 
 func (d *DotGit) openAndLockPackedRefsMode() int {
