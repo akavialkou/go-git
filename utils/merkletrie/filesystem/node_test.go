@@ -7,9 +7,9 @@ import (
 	"path"
 	"testing"
 
-	"github.com/akavialkou/go-git.v4/plumbing"
-	"github.com/akavialkou/go-git.v4/utils/merkletrie"
-	"github.com/akavialkou/go-git.v4/utils/merkletrie/noder"
+	"github.com/akavialkou/go-git/plumbing"
+	"github.com/akavialkou/go-git/utils/merkletrie"
+	"github.com/akavialkou/go-git/utils/merkletrie/noder"
 	. "gopkg.in/check.v1"
 	"gopkg.in/src-d/go-billy.v4"
 	"gopkg.in/src-d/go-billy.v4/memfs"

@@ -6,9 +6,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/akavialkou/go-git.v4/config"
-	"github.com/akavialkou/go-git.v4/plumbing"
-	"github.com/akavialkou/go-git.v4/plumbing/format/index"
+	"github.com/akavialkou/go-git/config"
+	"github.com/akavialkou/go-git/plumbing"
+	"github.com/akavialkou/go-git/plumbing/format/index"
 	"gopkg.in/src-d/go-billy.v4"
 )
 

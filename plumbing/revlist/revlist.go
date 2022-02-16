@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/akavialkou/go-git.v4/plumbing"
-	"github.com/akavialkou/go-git.v4/plumbing/filemode"
-	"github.com/akavialkou/go-git.v4/plumbing/object"
-	"github.com/akavialkou/go-git.v4/plumbing/storer"
+	"github.com/akavialkou/go-git/plumbing"
+	"github.com/akavialkou/go-git/plumbing/filemode"
+	"github.com/akavialkou/go-git/plumbing/object"
+	"github.com/akavialkou/go-git/plumbing/storer"
 )
 
 // Objects applies a complementary set. It gets all the hashes from all

@@ -1,7 +1,7 @@
 package git
 
 import (
-	"github.com/akavialkou/go-git.v4/plumbing/object"
+	"github.com/akavialkou/go-git/plumbing/object"
 	. "gopkg.in/check.v1"
 )
 

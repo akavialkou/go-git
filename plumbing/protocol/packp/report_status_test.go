@@ -3,8 +3,8 @@ package packp
 import (
 	"bytes"
 
-	"github.com/akavialkou/go-git.v4/plumbing"
-	"github.com/akavialkou/go-git.v4/plumbing/format/pktline"
+	"github.com/akavialkou/go-git/plumbing"
+	"github.com/akavialkou/go-git/plumbing/format/pktline"
 
 	. "gopkg.in/check.v1"
 )

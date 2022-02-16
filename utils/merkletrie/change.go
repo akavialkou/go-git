@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/akavialkou/go-git.v4/utils/merkletrie/noder"
+	"github.com/akavialkou/go-git/utils/merkletrie/noder"
 )
 
 // Action values represent the kind of things a Change can represent:

@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/akavialkou/go-git.v4/plumbing"
-	"github.com/akavialkou/go-git.v4/plumbing/format/pktline"
+	"github.com/akavialkou/go-git/plumbing"
+	"github.com/akavialkou/go-git/plumbing/format/pktline"
 )
 
 // Decode reads the next upload-request form its input and

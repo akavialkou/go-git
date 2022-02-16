@@ -3,7 +3,7 @@ package sideband
 import (
 	"io"
 
-	"github.com/akavialkou/go-git.v4/plumbing/format/pktline"
+	"github.com/akavialkou/go-git/plumbing/format/pktline"
 )
 
 // Muxer multiplex the packfile along with the progress messages and the error

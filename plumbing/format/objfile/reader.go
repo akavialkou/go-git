@@ -6,8 +6,8 @@ import (
 	"io"
 	"strconv"
 
-	"github.com/akavialkou/go-git.v4/plumbing"
-	"github.com/akavialkou/go-git.v4/plumbing/format/packfile"
+	"github.com/akavialkou/go-git/plumbing"
+	"github.com/akavialkou/go-git/plumbing/format/packfile"
 )
 
 var (

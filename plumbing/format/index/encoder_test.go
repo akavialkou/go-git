@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/akavialkou/go-git.v4/plumbing"
+	"github.com/akavialkou/go-git/plumbing"
 	"github.com/google/go-cmp/cmp"
 	. "gopkg.in/check.v1"
 )

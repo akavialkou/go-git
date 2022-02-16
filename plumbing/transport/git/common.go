@@ -6,10 +6,10 @@ import (
 	"io"
 	"net"
 
-	"github.com/akavialkou/go-git.v4/plumbing/format/pktline"
-	"github.com/akavialkou/go-git.v4/plumbing/transport"
-	"github.com/akavialkou/go-git.v4/plumbing/transport/internal/common"
-	"github.com/akavialkou/go-git.v4/utils/ioutil"
+	"github.com/akavialkou/go-git/plumbing/format/pktline"
+	"github.com/akavialkou/go-git/plumbing/transport"
+	"github.com/akavialkou/go-git/plumbing/transport/internal/common"
+	"github.com/akavialkou/go-git/utils/ioutil"
 )
 
 // DefaultClient is the default git client.

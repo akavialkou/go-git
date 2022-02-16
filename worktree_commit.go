@@ -6,11 +6,11 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/akavialkou/go-git.v4/plumbing"
-	"github.com/akavialkou/go-git.v4/plumbing/filemode"
-	"github.com/akavialkou/go-git.v4/plumbing/format/index"
-	"github.com/akavialkou/go-git.v4/plumbing/object"
-	"github.com/akavialkou/go-git.v4/storage"
+	"github.com/akavialkou/go-git/plumbing"
+	"github.com/akavialkou/go-git/plumbing/filemode"
+	"github.com/akavialkou/go-git/plumbing/format/index"
+	"github.com/akavialkou/go-git/plumbing/object"
+	"github.com/akavialkou/go-git/storage"
 	"golang.org/x/crypto/openpgp"
 
 	"gopkg.in/src-d/go-billy.v4"

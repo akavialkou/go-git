@@ -1,7 +1,7 @@
 package filesystem
 
 import (
-	"github.com/akavialkou/go-git.v4/plumbing"
+	"github.com/akavialkou/go-git/plumbing"
 )
 
 type deltaObject struct {

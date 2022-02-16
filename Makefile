@@ -16,7 +16,7 @@ COVERAGE_PROFILE = profile.out
 COVERAGE_MODE = atomic
 
 ifneq ($(origin CI), undefined)
-	WORKDIR := $(GOPATH)/src/github.com/akavialkou/go-git.v4
+	WORKDIR := $(GOPATH)/src/github.com/akavialkou/go-git
 endif
 
 build-git:

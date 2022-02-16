@@ -9,10 +9,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/akavialkou/go-git.v4/plumbing"
-	"github.com/akavialkou/go-git.v4/plumbing/protocol/packp"
-	"github.com/akavialkou/go-git.v4/plumbing/transport"
-	"github.com/akavialkou/go-git.v4/utils/ioutil"
+	"github.com/akavialkou/go-git/plumbing"
+	"github.com/akavialkou/go-git/plumbing/protocol/packp"
+	"github.com/akavialkou/go-git/plumbing/transport"
+	"github.com/akavialkou/go-git/utils/ioutil"
 )
 
 // it requires a bytes.Buffer, because we need to know the length

@@ -1,7 +1,7 @@
 package server_test
 
 import (
-	"github.com/akavialkou/go-git.v4/plumbing/transport"
+	"github.com/akavialkou/go-git/plumbing/transport"
 
 	. "gopkg.in/check.v1"
 )

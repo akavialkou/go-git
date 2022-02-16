@@ -10,8 +10,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/akavialkou/go-git.v4/plumbing"
-	"github.com/akavialkou/go-git.v4/utils/binary"
+	"github.com/akavialkou/go-git/plumbing"
+	"github.com/akavialkou/go-git/utils/binary"
 )
 
 var (

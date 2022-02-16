@@ -1,8 +1,8 @@
 package diff
 
 import (
-	"github.com/akavialkou/go-git.v4/plumbing"
-	"github.com/akavialkou/go-git.v4/plumbing/filemode"
+	"github.com/akavialkou/go-git/plumbing"
+	"github.com/akavialkou/go-git/plumbing/filemode"
 )
 
 // Operation defines the operation of a diff item.

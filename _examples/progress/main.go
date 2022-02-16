@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 
-	"github.com/akavialkou/go-git.v4"
-	. "github.com/akavialkou/go-git.v4/_examples"
+	"github.com/akavialkou/go-git"
+	. "github.com/akavialkou/go-git/_examples"
 )
 
 // Example of how to show the progress when you do a basic clone operation.

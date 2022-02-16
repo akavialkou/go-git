@@ -5,11 +5,11 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/akavialkou/go-git.v4/config"
-	"github.com/akavialkou/go-git.v4/plumbing"
-	"github.com/akavialkou/go-git.v4/plumbing/object"
-	"github.com/akavialkou/go-git.v4/plumbing/protocol/packp/sideband"
-	"github.com/akavialkou/go-git.v4/plumbing/transport"
+	"github.com/akavialkou/go-git/config"
+	"github.com/akavialkou/go-git/plumbing"
+	"github.com/akavialkou/go-git/plumbing/object"
+	"github.com/akavialkou/go-git/plumbing/protocol/packp/sideband"
+	"github.com/akavialkou/go-git/plumbing/transport"
 	"golang.org/x/crypto/openpgp"
 )
 

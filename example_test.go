@@ -8,11 +8,11 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/akavialkou/go-git.v4"
-	"github.com/akavialkou/go-git.v4/config"
-	"github.com/akavialkou/go-git.v4/plumbing"
-	"github.com/akavialkou/go-git.v4/plumbing/transport/http"
-	"github.com/akavialkou/go-git.v4/storage/memory"
+	"github.com/akavialkou/go-git"
+	"github.com/akavialkou/go-git/config"
+	"github.com/akavialkou/go-git/plumbing"
+	"github.com/akavialkou/go-git/plumbing/transport/http"
+	"github.com/akavialkou/go-git/storage/memory"
 
 	"gopkg.in/src-d/go-billy.v4/memfs"
 )

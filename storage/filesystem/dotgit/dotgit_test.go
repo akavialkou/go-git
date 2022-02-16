@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/akavialkou/go-git.v4/plumbing"
+	"github.com/akavialkou/go-git/plumbing"
 	"gopkg.in/src-d/go-billy.v4"
 
 	. "gopkg.in/check.v1"

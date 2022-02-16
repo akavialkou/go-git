@@ -5,9 +5,9 @@ import (
 	"io"
 	"strings"
 
-	"github.com/akavialkou/go-git.v4/plumbing"
-	"github.com/akavialkou/go-git.v4/plumbing/format/pktline"
-	"github.com/akavialkou/go-git.v4/plumbing/protocol/packp/capability"
+	"github.com/akavialkou/go-git/plumbing"
+	"github.com/akavialkou/go-git/plumbing/format/pktline"
+	"github.com/akavialkou/go-git/plumbing/protocol/packp/capability"
 
 	. "gopkg.in/check.v1"
 )

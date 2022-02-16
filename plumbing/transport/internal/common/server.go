@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/akavialkou/go-git.v4/plumbing/protocol/packp"
-	"github.com/akavialkou/go-git.v4/plumbing/transport"
-	"github.com/akavialkou/go-git.v4/utils/ioutil"
+	"github.com/akavialkou/go-git/plumbing/protocol/packp"
+	"github.com/akavialkou/go-git/plumbing/transport"
+	"github.com/akavialkou/go-git/utils/ioutil"
 )
 
 // ServerCommand is used for a single server command execution.

@@ -5,10 +5,10 @@ import (
 	"io"
 	"os"
 
-	"github.com/akavialkou/go-git.v4/plumbing"
-	"github.com/akavialkou/go-git.v4/plumbing/cache"
-	"github.com/akavialkou/go-git.v4/plumbing/format/idxfile"
-	"github.com/akavialkou/go-git.v4/plumbing/storer"
+	"github.com/akavialkou/go-git/plumbing"
+	"github.com/akavialkou/go-git/plumbing/cache"
+	"github.com/akavialkou/go-git/plumbing/format/idxfile"
+	"github.com/akavialkou/go-git/plumbing/storer"
 	billy "gopkg.in/src-d/go-billy.v4"
 )
 

@@ -3,7 +3,7 @@ package packfile
 import (
 	"bytes"
 
-	"github.com/akavialkou/go-git.v4/plumbing"
+	"github.com/akavialkou/go-git/plumbing"
 )
 
 // See https://github.com/jelmer/dulwich/blob/master/dulwich/pack.py and

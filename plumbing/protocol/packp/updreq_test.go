@@ -1,7 +1,7 @@
 package packp
 
 import (
-	"github.com/akavialkou/go-git.v4/plumbing/protocol/packp/capability"
+	"github.com/akavialkou/go-git/plumbing/protocol/packp/capability"
 
 	. "gopkg.in/check.v1"
 )

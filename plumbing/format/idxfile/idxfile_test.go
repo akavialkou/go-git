@@ -7,8 +7,8 @@ import (
 	"io"
 	"testing"
 
-	"github.com/akavialkou/go-git.v4/plumbing"
-	"github.com/akavialkou/go-git.v4/plumbing/format/idxfile"
+	"github.com/akavialkou/go-git/plumbing"
+	"github.com/akavialkou/go-git/plumbing/format/idxfile"
 
 	. "gopkg.in/check.v1"
 	"gopkg.in/src-d/go-git-fixtures.v3"

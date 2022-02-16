@@ -4,9 +4,9 @@ import (
 	"bufio"
 	"fmt"
 
-	"github.com/akavialkou/go-git.v4/plumbing"
-	"github.com/akavialkou/go-git.v4/storage/filesystem/dotgit"
-	"github.com/akavialkou/go-git.v4/utils/ioutil"
+	"github.com/akavialkou/go-git/plumbing"
+	"github.com/akavialkou/go-git/storage/filesystem/dotgit"
+	"github.com/akavialkou/go-git/utils/ioutil"
 )
 
 // ShallowStorage where the shallow commits are stored, an internal to

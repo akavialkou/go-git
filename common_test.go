@@ -3,12 +3,12 @@ package git
 import (
 	"testing"
 
-	"github.com/akavialkou/go-git.v4/plumbing"
-	"github.com/akavialkou/go-git.v4/plumbing/cache"
-	"github.com/akavialkou/go-git.v4/plumbing/format/packfile"
-	"github.com/akavialkou/go-git.v4/plumbing/transport"
-	"github.com/akavialkou/go-git.v4/storage/filesystem"
-	"github.com/akavialkou/go-git.v4/storage/memory"
+	"github.com/akavialkou/go-git/plumbing"
+	"github.com/akavialkou/go-git/plumbing/cache"
+	"github.com/akavialkou/go-git/plumbing/format/packfile"
+	"github.com/akavialkou/go-git/plumbing/transport"
+	"github.com/akavialkou/go-git/storage/filesystem"
+	"github.com/akavialkou/go-git/storage/memory"
 
 	. "gopkg.in/check.v1"
 	"gopkg.in/src-d/go-billy.v4"

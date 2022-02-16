@@ -3,11 +3,11 @@ package revlist
 import (
 	"testing"
 
-	"github.com/akavialkou/go-git.v4/plumbing"
-	"github.com/akavialkou/go-git.v4/plumbing/cache"
-	"github.com/akavialkou/go-git.v4/plumbing/object"
-	"github.com/akavialkou/go-git.v4/plumbing/storer"
-	"github.com/akavialkou/go-git.v4/storage/filesystem"
+	"github.com/akavialkou/go-git/plumbing"
+	"github.com/akavialkou/go-git/plumbing/cache"
+	"github.com/akavialkou/go-git/plumbing/object"
+	"github.com/akavialkou/go-git/plumbing/storer"
+	"github.com/akavialkou/go-git/storage/filesystem"
 
 	. "gopkg.in/check.v1"
 	"gopkg.in/src-d/go-git-fixtures.v3"

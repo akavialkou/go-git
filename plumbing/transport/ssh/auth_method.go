@@ -10,7 +10,7 @@ import (
 	"os/user"
 	"path/filepath"
 
-	"github.com/akavialkou/go-git.v4/plumbing/transport"
+	"github.com/akavialkou/go-git/plumbing/transport"
 
 	"github.com/mitchellh/go-homedir"
 	"github.com/xanzy/ssh-agent"

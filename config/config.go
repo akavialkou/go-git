@@ -8,7 +8,7 @@ import (
 	"sort"
 	"strconv"
 
-	format "github.com/akavialkou/go-git.v4/plumbing/format/config"
+	format "github.com/akavialkou/go-git/plumbing/format/config"
 )
 
 const (
