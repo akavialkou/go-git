@@ -78,7 +78,7 @@ func walkGraph(result *[]*object.Commit, seen *map[plumbing.Hash]struct{}, curre
 
 	// optimization: don't traverse branches that does not
 	// contain the path.
-	parents, err := parentsContainingPath(path, current)
+	parents, err := ParentsContainingPath(path, current)
 	if err != nil {
 		return err
 	}
@@ -92,7 +92,7 @@ func walkGraph(result *[]*object.Commit, seen *map[plumbing.Hash]struct{}, curre
 		return nil
 	case 1: // only one parent contains the path
 		// if the file contents has change, add the current commit
-		different, err := differentContents(path, current, parents)
+		different, err := DifferentContents(path, current, parents)
 		if err != nil {
 			return err
 		}
@@ -102,7 +102,7 @@ func walkGraph(result *[]*object.Commit, seen *map[plumbing.Hash]struct{}, curre
 		// in any case, walk the parent
 		return walkGraph(result, seen, parents[0], path)
 	default: // more than one parent contains the path
-		different, err := differentContents(path, current, parents)
+		different, err := DifferentContents(path, current, parents)
 		if err != nil {
 			return err
 		}
@@ -120,7 +120,7 @@ func walkGraph(result *[]*object.Commit, seen *map[plumbing.Hash]struct{}, curre
 	return nil
 }
 
-func parentsContainingPath(path string, c *object.Commit) ([]*object.Commit, error) {
+func ParentsContainingPath(path string, c *object.Commit) ([]*object.Commit, error) {
 	// TODO: benchmark this method making git.object.Commit.parent public instead of using
 	// an iterator
 	var result []*object.Commit
@@ -141,7 +141,7 @@ func parentsContainingPath(path string, c *object.Commit) ([]*object.Commit, err
 
 // Returns an slice of the commits in "cs" that has the file "path", but with different
 // contents than what can be found in "c".
-func differentContents(path string, c *object.Commit, cs []*object.Commit) ([]*object.Commit, error) {
+func DifferentContents(path string, c *object.Commit, cs []*object.Commit) ([]*object.Commit, error) {
 	result := make([]*object.Commit, 0, len(cs))
 	h, found := blobHash(path, c)
 	if !found {
