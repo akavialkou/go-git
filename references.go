@@ -24,10 +24,10 @@ import (
 // - Cherry-picks are not detected unless there are no commits between them and
 // therefore can appear repeated in the list. (see git path-id for hints on how
 // to fix this).
-func references(c *object.Commit, path string) ([]*object.Commit, error) {
+func references(c *object.Commit, path string, repository *Repository, parentsMap map[string][]string) ([]*object.Commit, error) {
 	var result []*object.Commit
 	seen := make(map[plumbing.Hash]struct{})
-	if err := walkGraph(&result, &seen, c, path); err != nil {
+	if err := walkGraph(&result, &seen, c, path, repository, parentsMap); err != nil {
 		return nil, err
 	}
 
@@ -64,7 +64,14 @@ func sortCommits(l []*object.Commit) {
 
 // Recursive traversal of the commit graph, generating a linear history of the
 // path.
-func walkGraph(result *[]*object.Commit, seen *map[plumbing.Hash]struct{}, current *object.Commit, path string) error {
+func walkGraph(
+	result *[]*object.Commit,
+	seen *map[plumbing.Hash]struct{},
+	current *object.Commit,
+	path string,
+	repository *Repository,
+	parentsMap map[string][]string,
+) error {
 	// check and update seen
 	if _, ok := (*seen)[current.Hash]; ok {
 		return nil
@@ -78,7 +85,7 @@ func walkGraph(result *[]*object.Commit, seen *map[plumbing.Hash]struct{}, curre
 
 	// optimization: don't traverse branches that does not
 	// contain the path.
-	parents, err := parentsContainingPath(path, current)
+	parents, err := ParentsContainingPathWithParentsMap(path, current, repository, parentsMap)
 	if err != nil {
 		return err
 	}
@@ -92,7 +99,7 @@ func walkGraph(result *[]*object.Commit, seen *map[plumbing.Hash]struct{}, curre
 		return nil
 	case 1: // only one parent contains the path
 		// if the file contents has change, add the current commit
-		different, err := differentContents(path, current, parents)
+		different, err := DifferentContents(path, current, parents)
 		if err != nil {
 			return err
 		}
@@ -100,9 +107,9 @@ func walkGraph(result *[]*object.Commit, seen *map[plumbing.Hash]struct{}, curre
 			*result = append(*result, current)
 		}
 		// in any case, walk the parent
-		return walkGraph(result, seen, parents[0], path)
+		return walkGraph(result, seen, parents[0], path, repository, parentsMap)
 	default: // more than one parent contains the path
-		different, err := differentContents(path, current, parents)
+		different, err := DifferentContents(path, current, parents)
 		if err != nil {
 			return err
 		}
@@ -111,7 +118,7 @@ func walkGraph(result *[]*object.Commit, seen *map[plumbing.Hash]struct{}, curre
 		}
 		// included in the result here.
 		for _, p := range parents {
-			err := walkGraph(result, seen, p, path)
+			err := walkGraph(result, seen, p, path, repository, parentsMap)
 			if err != nil {
 				return err
 			}
@@ -120,7 +127,28 @@ func walkGraph(result *[]*object.Commit, seen *map[plumbing.Hash]struct{}, curre
 	return nil
 }
 
-func parentsContainingPath(path string, c *object.Commit) ([]*object.Commit, error) {
+func ParentsContainingPathWithParentsMap(path string, c *object.Commit, repository *Repository, parentsMap map[string][]string) ([]*object.Commit, error) {
+	// TODO: benchmark this method making git.object.Commit.parent public instead of using
+	// an iterator
+	var result []*object.Commit
+	parents := parentsMap[c.Hash.String()]
+	for _, parentHash := range parents {
+		parent, err := repository.CommitObject(plumbing.NewHash(parentHash))
+		if err == io.EOF {
+			return result, nil
+		}
+		if err != nil {
+			return nil, err
+		}
+		if _, err := parent.File(path); err == nil {
+			result = append(result, parent)
+		}
+	}
+
+	return result, nil
+}
+
+func ParentsContainingPath(path string, c *object.Commit) ([]*object.Commit, error) {
 	// TODO: benchmark this method making git.object.Commit.parent public instead of using
 	// an iterator
 	var result []*object.Commit
@@ -141,7 +169,7 @@ func parentsContainingPath(path string, c *object.Commit) ([]*object.Commit, err
 
 // Returns an slice of the commits in "cs" that has the file "path", but with different
 // contents than what can be found in "c".
-func differentContents(path string, c *object.Commit, cs []*object.Commit) ([]*object.Commit, error) {
+func DifferentContents(path string, c *object.Commit, cs []*object.Commit) ([]*object.Commit, error) {
 	result := make([]*object.Commit, 0, len(cs))
 	h, found := blobHash(path, c)
 	if !found {

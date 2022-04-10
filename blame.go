@@ -26,7 +26,7 @@ type BlameResult struct {
 
 // Blame returns a BlameResult with the information about the last author of
 // each line from file `path` at commit `c`.
-func Blame(c *object.Commit, path string) (*BlameResult, error) {
+func Blame(c *object.Commit, path string, repository *Repository, parentsMap map[string][]string) (*BlameResult, error) {
 	// The file to blame is identified by the input arguments:
 	// commit and path. commit is a Commit object obtained from a Repository. Path
 	// represents a path to a specific file contained into the repository.
@@ -62,6 +62,8 @@ func Blame(c *object.Commit, path string) (*BlameResult, error) {
 
 	b := new(blame)
 	b.fRev = c
+	b.repository = repository
+	b.parentsMap = parentsMap
 	b.path = path
 
 	// get all the file revisions
@@ -148,8 +150,12 @@ func newLines(contents []string, commits []*object.Commit) ([]*Line, error) {
 // this struct is internally used by the blame function to hold its
 // inputs, outputs and state.
 type blame struct {
+	// repository object
+	repository *Repository
 	// the path of the file to blame
 	path string
+	// parents of commits
+	parentsMap map[string][]string
 	// the commit of the final revision of the file to blame
 	fRev *object.Commit
 	// the chain of revisions affecting the the file to blame
@@ -164,7 +170,7 @@ type blame struct {
 func (b *blame) fillRevs() error {
 	var err error
 
-	b.revs, err = references(b.fRev, b.path)
+	b.revs, err = references(b.fRev, b.path, b.repository, b.parentsMap)
 	return err
 }
 
