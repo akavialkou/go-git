@@ -113,7 +113,7 @@ func walkGraph(
 		if err != nil {
 			return err
 		}
-		if len(different) == 1 {
+		if len(different) == len(parents) { // if different from both parents, it means conflicts were resolved
 			*result = append(*result, current)
 		}
 		// included in the result here.
