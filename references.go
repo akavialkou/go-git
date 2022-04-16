@@ -24,7 +24,7 @@ import (
 // - Cherry-picks are not detected unless there are no commits between them and
 // therefore can appear repeated in the list. (see git path-id for hints on how
 // to fix this).
-func references(c *object.Commit, path string, repository *Repository, parentsMap map[string][]string) ([]*object.Commit, error) {
+func references(c *object.Commit, path string, repository *Repository, parentsMap *map[string][]string) ([]*object.Commit, error) {
 	var result []*object.Commit
 	seen := make(map[plumbing.Hash]struct{})
 	if err := walkGraph(&result, &seen, c, path, repository, parentsMap); err != nil {
@@ -70,7 +70,7 @@ func walkGraph(
 	current *object.Commit,
 	path string,
 	repository *Repository,
-	parentsMap map[string][]string,
+	parentsMap *map[string][]string,
 ) error {
 	// check and update seen
 	if _, ok := (*seen)[current.Hash]; ok {
@@ -127,11 +127,11 @@ func walkGraph(
 	return nil
 }
 
-func ParentsContainingPathWithParentsMap(path string, c *object.Commit, repository *Repository, parentsMap map[string][]string) ([]*object.Commit, error) {
+func ParentsContainingPathWithParentsMap(path string, c *object.Commit, repository *Repository, parentsMap *map[string][]string) ([]*object.Commit, error) {
 	// TODO: benchmark this method making git.object.Commit.parent public instead of using
 	// an iterator
 	var result []*object.Commit
-	parents := parentsMap[c.Hash.String()]
+	parents := (*parentsMap)[c.Hash.String()]
 	for _, parentHash := range parents {
 		parent, err := repository.CommitObject(plumbing.NewHash(parentHash))
 		if err == io.EOF {

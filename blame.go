@@ -26,7 +26,7 @@ type BlameResult struct {
 
 // Blame returns a BlameResult with the information about the last author of
 // each line from file `path` at commit `c`.
-func Blame(c *object.Commit, path string, repository *Repository, parentsMap map[string][]string) (*BlameResult, error) {
+func Blame(c *object.Commit, path string, repository *Repository, parentsMap *map[string][]string) (*BlameResult, error) {
 	// The file to blame is identified by the input arguments:
 	// commit and path. commit is a Commit object obtained from a Repository. Path
 	// represents a path to a specific file contained into the repository.
@@ -155,7 +155,7 @@ type blame struct {
 	// the path of the file to blame
 	path string
 	// parents of commits
-	parentsMap map[string][]string
+	parentsMap *map[string][]string
 	// the commit of the final revision of the file to blame
 	fRev *object.Commit
 	// the chain of revisions affecting the the file to blame
