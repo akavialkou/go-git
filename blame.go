@@ -86,6 +86,12 @@ func Blame(c *object.Commit, path string, repository *Repository, parentsMap *ma
 		return nil, err
 	}
 
+	// if 2 last commits had conflicts and had to be solved via merge commit
+	// we may simply to swap them in case current version of the file corresponds to the version before the previous
+	if len(b.graph) > 1 && len(finalLines) != len(b.graph[len(b.graph)-1]) && len(finalLines) == len(b.graph[len(b.graph)-2]) {
+		b.graph[len(b.graph)-2], b.graph[len(b.graph)-1] = b.graph[len(b.graph)-1], b.graph[len(b.graph)-2]
+	}
+
 	// Each node (line) holds the commit where it was introduced or
 	// last modified. To achieve that we use the FORWARD algorithm
 	// described in Zimmermann, et al. "Mining Version Archives for
