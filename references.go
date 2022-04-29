@@ -3,6 +3,7 @@ package git
 import (
 	"io"
 	"sort"
+	"strings"
 
 	"github.com/akavialkou/go-git/plumbing"
 	"github.com/akavialkou/go-git/plumbing/object"
@@ -113,7 +114,8 @@ func walkGraph(
 		if err != nil {
 			return err
 		}
-		if len(different) == len(parents) { // if different from both parents, it means conflicts were resolved
+		// if different from all parents, it means conflicts were resolved
+		if len(different) == len(parents) || hasConflictByPath(path, current) {
 			*result = append(*result, current)
 		}
 		// included in the result here.
@@ -125,6 +127,10 @@ func walkGraph(
 		}
 	}
 	return nil
+}
+
+func hasConflictByPath(path string, c *object.Commit) bool {
+	return strings.Index(c.Message, "Conflicts") > 0 && strings.Index(c.Message, path) > 0
 }
 
 func ParentsContainingPathWithParentsMap(path string, c *object.Commit, repository *Repository, parentsMap *map[string][]string) ([]*object.Commit, error) {
